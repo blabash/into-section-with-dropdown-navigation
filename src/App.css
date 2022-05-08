@@ -39,6 +39,10 @@ a {
   border-radius: 12px;
 }
 
+.flip-down::after  {
+  content: url('./images/icon-arrow-down.svg');
+}
+
 a:hover,
 a:focus,
 a:active {
@@ -128,6 +132,7 @@ img {
 }
 
 /* =========Helper Classes======== */
+
 .padding-2em-3em {
   padding: 2em 3em;
 }
@@ -154,6 +159,13 @@ img {
 
 .flex-row-container {
   display: flex;
+}
+
+.flex-grow-1 {
+  flex-grow: 1;
+}
+
+.align-items-center {
   align-items: center;
 }
 

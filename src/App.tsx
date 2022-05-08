@@ -11,39 +11,43 @@ import "./App.css";
 function App() {
   return (
     <div className="page-grid-container">
-      <header className="flex-row-container justify-space-between padding-2em-3em">
-        <div className="flex-row-container">
+      <header className="padding-2em-3em">
+        <div className="flex-row-container align-items-center">
           <img src={snapLogo} className="snap-logo" alt="snap logo" />
-          <nav>
+          <nav className="flex-grow-1">
             {/* <div className="hamburger"></div> */}
-            <ul className="flex-row-container gap-3em">
-              <li>
-                <a href="">Features</a>
-              </li>
-              <li>
-                <a href="">Company</a>
-              </li>
-              <li>
-                <a href="">Careers</a>
-              </li>
-              <li>
-                <a href="">About</a>
-              </li>
+            <ul className="flex-row-container justify-space-between">
+              <div className="flex-row-container">
+                <li>
+                  <a className="flip-down" href="">
+                    Features
+                  </a>
+                </li>
+                <li>
+                  <a className="flip-down" href="">
+                    Company
+                  </a>
+                </li>
+                <li>
+                  <a href="">Careers</a>
+                </li>
+                <li>
+                  <a href="">About</a>
+                </li>
+              </div>
+              <div className="flex-row-container">
+                <li>
+                  <a href="">Login</a>
+                </li>
+                <li>
+                  <a className="white-btn-link" href="">
+                    Register
+                  </a>
+                </li>
+              </div>
             </ul>
           </nav>
         </div>
-        <nav>
-          <ul className="flex-row-container gap-3em">
-            <li>
-              <a href="">Login</a>
-            </li>
-            <li>
-              <a className="white-btn-link" href="">
-                Register
-              </a>
-            </li>
-          </ul>
-        </nav>
       </header>
       <main className="main-grid-container">
         {/* <img src="image-hero-mobile" alt="" /> */}
