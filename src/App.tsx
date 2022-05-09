@@ -11,11 +11,11 @@ import "./App.css";
 function App() {
   return (
     <div className="page-grid-container">
-      <header className="padding-2em-3em">
-        <div className="flex-row-container align-items-center">
+      <header>
+        <div className="flex-row-container justify-space-between align-items-center">
           <img src={snapLogo} className="snap-logo" alt="snap logo" />
-          <nav className="flex-grow-1">
-            {/* <div className="hamburger"></div> */}
+          <div id="hamburger" className="desktop-hidden"></div>
+          <nav className="flex-grow-1 mobile-hidden">
             <ul className="flex-row-container justify-space-between">
               <div className="flex-row-container">
                 <li>
@@ -50,10 +50,18 @@ function App() {
         </div>
       </header>
       <main className="main-grid-container">
-        {/* <img src="image-hero-mobile" alt="" /> */}
-        <img src={imageHeroDesktop} alt="image hero desktop" />
+        <img
+          className="desktop-hidden"
+          src={imageHeroMobile}
+          alt="image hero mobile"
+        />
+        <img
+          className="mobile-hidden"
+          src={imageHeroDesktop}
+          alt="image hero desktop"
+        />
         <h1>
-          Make <br></br> remote work
+          Make <br className="mobile-hidden"></br> remote work
         </h1>
         <p>
           Get your team in sync, no matter your location. Streamline processes,
