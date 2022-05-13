@@ -63,7 +63,23 @@ a:active {
   border: 1px solid var(--medium-gray);
 }
 
-.nav__toggle {
+.mobile-nav {
+  position: absolute;
+  top: 0;
+  width: calc(66% - 3rem);
+  height: 100vh;
+  right: 0;
+  padding: 4em 1.5em 0;
+  background: #fff;
+  transition: transform 350ms ease-in-out;
+  transform: translateX(100%);
+}
+
+.mobile-nav.mobile-nav--open {
+  transform: translateX(0);
+}
+
+.mobile-nav__toggle {
   background-color: inherit;
   position: relative;
   border: 0;
@@ -71,9 +87,10 @@ a:active {
   height: 1rem;
   padding: 0;
   transition: transform 350ms ease-in-out;
+  z-index: 10;
 }
 
-.nav__toggle.mobile-nav--open {
+.mobile-nav__toggle.mobile-nav--open {
   transform: rotateZ(45deg);
 }
 
@@ -194,6 +211,7 @@ p {
 .flex-col-container {
   display: flex;
   flex-direction: column;
+  gap: 1em;
 }
 
 .flex-grow-1 {

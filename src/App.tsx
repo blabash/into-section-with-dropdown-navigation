@@ -19,7 +19,9 @@ const MobileNav = ({
 }: MobileNavProps) => {
   return (
     <nav
-      className={`desktop-hidden${mobileNavToggled ? " mobile-nav--open" : ""}`}
+      className={`mobile-nav desktop-hidden${
+        mobileNavToggled ? " mobile-nav--open" : ""
+      }`}
     >
       <ul className="flex-col-container">
         <li>
@@ -38,16 +40,14 @@ const MobileNav = ({
         <li>
           <a href="">About</a>
         </li>
-        <div className="flex-row-container">
-          <li>
-            <a href="">Login</a>
-          </li>
-          <li>
-            <a className="white-btn-link" href="">
-              Register
-            </a>
-          </li>
-        </div>
+        <li>
+          <a href="">Login</a>
+        </li>
+        <li>
+          <a className="white-btn-link" href="">
+            Register
+          </a>
+        </li>
       </ul>
     </nav>
   );
@@ -61,7 +61,7 @@ const MobileNavToggle = ({
 }: MobileNavToggleProps) => {
   return (
     <button
-      className={`nav__toggle desktop-hidden${
+      className={`mobile-nav__toggle desktop-hidden${
         mobileNavToggled ? " mobile-nav--open" : ""
       }`}
       onClick={() => setMobileNavToggled((s) => !s)}
@@ -83,10 +83,10 @@ function App() {
             mobileNavToggled={mobileNavToggled}
             setMobileNavToggled={setMobileNavToggled}
           />
-          {/* <MobileNav
+          <MobileNav
             mobileNavToggled={mobileNavToggled}
             setMobileNavToggled={setMobileNavToggled}
-          /> */}
+          />
           <nav className="flex-grow-1 mobile-hidden">
             <ul className="flex-row-container justify-space-between">
               <div className="flex-row-container">
