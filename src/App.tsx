@@ -18,38 +18,46 @@ const MobileNav = ({
   setMobileNavToggled,
 }: MobileNavProps) => {
   return (
-    <nav
-      className={`mobile-nav desktop-hidden${
-        mobileNavToggled ? " mobile-nav--open" : ""
-      }`}
-    >
-      <ul className="flex-col-container">
-        <li>
-          <a className="flip-down" href="">
-            Features
-          </a>
-        </li>
-        <li>
-          <a className="flip-down" href="">
-            Company
-          </a>
-        </li>
-        <li>
-          <a href="">Careers</a>
-        </li>
-        <li>
-          <a href="">About</a>
-        </li>
-        <li>
-          <a href="">Login</a>
-        </li>
-        <li>
-          <a className="white-btn-link" href="">
-            Register
-          </a>
-        </li>
-      </ul>
-    </nav>
+    <>
+      <div
+        onClick={() => setMobileNavToggled((s) => !s)}
+        className={`mobile-nav__background desktop-hidden${
+          mobileNavToggled ? " mobile-nav--open" : ""
+        }`}
+      ></div>
+      <nav
+        className={`mobile-nav desktop-hidden${
+          mobileNavToggled ? " mobile-nav--open" : ""
+        }`}
+      >
+        <ul className="flex-col-container">
+          <li>
+            <a className="flip-down" href="">
+              Features
+            </a>
+          </li>
+          <li>
+            <a className="flip-down" href="">
+              Company
+            </a>
+          </li>
+          <li>
+            <a href="">Careers</a>
+          </li>
+          <li>
+            <a href="">About</a>
+          </li>
+          <li>
+            <a href="">Login</a>
+          </li>
+          <li>
+            <a className="white-btn-link" href="">
+              Register
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </>
   );
 };
 
