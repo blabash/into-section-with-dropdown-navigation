@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import snapLogo from "./images/logo.svg";
 import dataBizLogo from "./images/client-databiz.svg";
 import audiophileLogo from "./images/client-audiophile.svg";
@@ -8,13 +8,85 @@ import imageHeroDesktop from "./images/image-hero-desktop.png";
 import imageHeroMobile from "./images/image-hero-mobile.png";
 import "./App.css";
 
+type MobileNavProps = {
+  mobileNavToggled: boolean;
+  setMobileNavToggled: React.Dispatch<React.SetStateAction<boolean>>;
+};
+
+const MobileNav = ({
+  mobileNavToggled,
+  setMobileNavToggled,
+}: MobileNavProps) => {
+  return (
+    <nav
+      className={`desktop-hidden${mobileNavToggled ? " mobile-nav--open" : ""}`}
+    >
+      <ul className="flex-col-container">
+        <li>
+          <a className="flip-down" href="">
+            Features
+          </a>
+        </li>
+        <li>
+          <a className="flip-down" href="">
+            Company
+          </a>
+        </li>
+        <li>
+          <a href="">Careers</a>
+        </li>
+        <li>
+          <a href="">About</a>
+        </li>
+        <div className="flex-row-container">
+          <li>
+            <a href="">Login</a>
+          </li>
+          <li>
+            <a className="white-btn-link" href="">
+              Register
+            </a>
+          </li>
+        </div>
+      </ul>
+    </nav>
+  );
+};
+
+type MobileNavToggleProps = MobileNavProps;
+
+const MobileNavToggle = ({
+  mobileNavToggled,
+  setMobileNavToggled,
+}: MobileNavToggleProps) => {
+  return (
+    <button
+      className={`nav__toggle desktop-hidden${
+        mobileNavToggled ? " mobile-nav--open" : ""
+      }`}
+      onClick={() => setMobileNavToggled((s) => !s)}
+    >
+      <span id="hamburger"></span>
+    </button>
+  );
+};
+
 function App() {
+  const [mobileNavToggled, setMobileNavToggled] = useState(false);
+
   return (
     <div className="page-grid-container">
       <header>
         <div className="flex-row-container justify-space-between align-items-center">
           <img src={snapLogo} className="snap-logo" alt="snap logo" />
-          <div id="hamburger" className="desktop-hidden"></div>
+          <MobileNavToggle
+            mobileNavToggled={mobileNavToggled}
+            setMobileNavToggled={setMobileNavToggled}
+          />
+          {/* <MobileNav
+            mobileNavToggled={mobileNavToggled}
+            setMobileNavToggled={setMobileNavToggled}
+          /> */}
           <nav className="flex-grow-1 mobile-hidden">
             <ul className="flex-row-container justify-space-between">
               <div className="flex-row-container">
