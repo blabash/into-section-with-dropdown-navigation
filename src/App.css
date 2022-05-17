@@ -51,6 +51,12 @@ a {
 
 .flip-down::after  {
   content: url('./images/icon-arrow-down.svg');
+  margin-left: 1rem;
+  transition: transform 350ms ease-in-out;
+}
+
+.flip-down--open.flip-down::after  {
+  transform: rotateZ(180deg);
 }
 
 a:hover,
@@ -60,6 +66,10 @@ a:active {
 }
 
 .white-btn-link {
+  display: inline-block;
+  width: 100%;
+  padding: 1em 0;
+  text-align: center;
   border: 1px solid var(--medium-gray);
 }
 
@@ -103,7 +113,7 @@ a:active {
   background-color: hsl(0, 0%, 0%, .5);
   opacity: 0;
   transform: translateX(-100%);
-  transition: transform 350ms ease-in-out, opacity 200ms linear;
+  transition: transform 350ms ease-in-out, opacity 350ms linear;
 }
 
 .mobile-nav__background.mobile-nav--open {
@@ -209,6 +219,10 @@ p {
   align-self: end;
 }
 
+.align-self-center {
+  align-self: center;
+}
+
 .gap-1em {
   gap: 1em;
 }
@@ -228,7 +242,7 @@ p {
 .flex-col-container {
   display: flex;
   flex-direction: column;
-  gap: 1em;
+  gap: 2em;
 }
 
 .flex-grow-1 {
@@ -237,6 +251,10 @@ p {
 
 .align-items-center {
   align-items: center;
+}
+
+.text-align-center {
+  text-align: center;
 }
 
 .App {
@@ -249,10 +267,15 @@ p {
 }
 
 @media (min-width: 561px) {
-  /* =========Components======== */
-  header {
-    padding: 2em 3em;
-  }
+/* =========Components======== */
+header {
+  padding: 2em 3em;
+}
+
+.white-btn-link {
+  display: inline;
+  padding: 1em;
+}
 
   /* =========Typography======== */
   body {

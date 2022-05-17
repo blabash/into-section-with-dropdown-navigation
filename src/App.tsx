@@ -47,7 +47,7 @@ const MobileNav = ({
           <li>
             <a href="">About</a>
           </li>
-          <li>
+          <li className="text-align-center">
             <a href="">Login</a>
           </li>
           <li>
