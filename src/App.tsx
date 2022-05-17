@@ -79,6 +79,53 @@ const MobileNavToggle = ({
   );
 };
 
+type FullSizedNavProps = {};
+
+const FullSizedNav = (props: FullSizedNavProps) => {
+  const [featuresTabOpen, setFeaturesTabOpen] = useState(false);
+  const [companyTabOpen, setCompanyTabOpen] = useState(false);
+  return (
+    <nav className="flex-grow-1 mobile-hidden">
+      <ul className="flex-row-container justify-space-between">
+        <div className="flex-row-container">
+          <li onClick={() => setFeaturesTabOpen((o) => !o)}>
+            <a
+              className={`flip-down${
+                featuresTabOpen ? " flip-down--open" : ""
+              }`}
+            >
+              Features
+            </a>
+          </li>
+          <li onClick={() => setCompanyTabOpen((o) => !o)}>
+            <a
+              className={`flip-down${companyTabOpen ? " flip-down--open" : ""}`}
+            >
+              Company
+            </a>
+          </li>
+          <li>
+            <a href="">Careers</a>
+          </li>
+          <li>
+            <a href="">About</a>
+          </li>
+        </div>
+        <div className="flex-row-container">
+          <li>
+            <a href="">Login</a>
+          </li>
+          <li>
+            <a className="white-btn-link" href="">
+              Register
+            </a>
+          </li>
+        </div>
+      </ul>
+    </nav>
+  );
+};
+
 function App() {
   const [mobileNavToggled, setMobileNavToggled] = useState(false);
 
@@ -95,38 +142,7 @@ function App() {
             mobileNavToggled={mobileNavToggled}
             setMobileNavToggled={setMobileNavToggled}
           />
-          <nav className="flex-grow-1 mobile-hidden">
-            <ul className="flex-row-container justify-space-between">
-              <div className="flex-row-container">
-                <li>
-                  <a className="flip-down" href="">
-                    Features
-                  </a>
-                </li>
-                <li>
-                  <a className="flip-down" href="">
-                    Company
-                  </a>
-                </li>
-                <li>
-                  <a href="">Careers</a>
-                </li>
-                <li>
-                  <a href="">About</a>
-                </li>
-              </div>
-              <div className="flex-row-container">
-                <li>
-                  <a href="">Login</a>
-                </li>
-                <li>
-                  <a className="white-btn-link" href="">
-                    Register
-                  </a>
-                </li>
-              </div>
-            </ul>
-          </nav>
+          <FullSizedNav />
         </div>
       </header>
       <main className="main-grid-container">

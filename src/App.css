@@ -50,6 +50,7 @@ a {
 }
 
 .flip-down::after  {
+  display: inline-block;
   content: url('./images/icon-arrow-down.svg');
   margin-left: 1rem;
   transition: transform 350ms ease-in-out;
