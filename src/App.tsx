@@ -17,6 +17,8 @@ const MobileNav = ({
   mobileNavToggled,
   setMobileNavToggled,
 }: MobileNavProps) => {
+  const [featuresTabOpen, setFeaturesTabOpen] = useState(false);
+  const [companyTabOpen, setCompanyTabOpen] = useState(false);
   return (
     <>
       <div
@@ -32,12 +34,20 @@ const MobileNav = ({
       >
         <ul className="flex-col-container">
           <li>
-            <a className="flip-down" href="">
+            <a
+              onClick={() => setFeaturesTabOpen((o) => !o)}
+              className={`flip-down${
+                featuresTabOpen ? " flip-down--open" : ""
+              }`}
+            >
               Features
             </a>
           </li>
           <li>
-            <a className="flip-down" href="">
+            <a
+              onClick={() => setCompanyTabOpen((o) => !o)}
+              className={`flip-down${companyTabOpen ? " flip-down--open" : ""}`}
+            >
               Company
             </a>
           </li>
@@ -88,8 +98,9 @@ const FullSizedNav = (props: FullSizedNavProps) => {
     <nav className="flex-grow-1 mobile-hidden">
       <ul className="flex-row-container justify-space-between">
         <div className="flex-row-container">
-          <li onClick={() => setFeaturesTabOpen((o) => !o)}>
+          <li>
             <a
+              onClick={() => setFeaturesTabOpen((o) => !o)}
               className={`flip-down${
                 featuresTabOpen ? " flip-down--open" : ""
               }`}
@@ -97,8 +108,9 @@ const FullSizedNav = (props: FullSizedNavProps) => {
               Features
             </a>
           </li>
-          <li onClick={() => setCompanyTabOpen((o) => !o)}>
+          <li>
             <a
+              onClick={() => setCompanyTabOpen((o) => !o)}
               className={`flip-down${companyTabOpen ? " flip-down--open" : ""}`}
             >
               Company
