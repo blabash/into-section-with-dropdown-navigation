@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import snapLogo from "./images/logo.svg";
 import dataBizLogo from "./images/client-databiz.svg";
 import audiophileLogo from "./images/client-audiophile.svg";
@@ -94,11 +94,17 @@ type FullSizedNavProps = {};
 const FullSizedNav = (props: FullSizedNavProps) => {
   const [featuresTabOpen, setFeaturesTabOpen] = useState(false);
   const [companyTabOpen, setCompanyTabOpen] = useState(false);
+  const [navHeight, setNavHeight] = useState(0);
+  const navItemRef = useRef<HTMLLIElement>(null);
+  useEffect(() => {
+    setNavHeight(navItemRef.current?.getBoundingClientRect().height || 0);
+  }, [navItemRef.current]);
+
   return (
     <nav className="flex-grow-1 mobile-hidden">
       <ul className="flex-row-container justify-space-between">
-        <div className="flex-row-container">
-          <li>
+        <div className="flex-row-container gap-1em">
+          <li ref={navItemRef} style={{ position: "relative" }}>
             <a
               onClick={() => setFeaturesTabOpen((o) => !o)}
               className={`flip-down${
@@ -106,14 +112,71 @@ const FullSizedNav = (props: FullSizedNavProps) => {
               }`}
             >
               Features
+              {
+                <ul
+                  className={
+                    "desktop-nav__dropdown-menu flex-col-container gap-1em right-0"
+                  }
+                  style={{ top: `calc(${navHeight}px + 1em)` }}
+                >
+                  <li>
+                    <a
+                      className="desktop-nav__dropdown-menu__logo-link todo-svg"
+                      href=""
+                    >
+                      Todo List
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      className="desktop-nav__dropdown-menu__logo-link calendar-svg"
+                      href=""
+                    >
+                      Calendar
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      className="desktop-nav__dropdown-menu__logo-link reminders-svg"
+                      href=""
+                    >
+                      Reminders
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      className="desktop-nav__dropdown-menu__logo-link planning-svg"
+                      href=""
+                    >
+                      Planning
+                    </a>
+                  </li>
+                </ul>
+              }
             </a>
           </li>
-          <li>
+          <li style={{ position: "relative" }}>
             <a
               onClick={() => setCompanyTabOpen((o) => !o)}
               className={`flip-down${companyTabOpen ? " flip-down--open" : ""}`}
             >
               Company
+              {
+                <ul
+                  className="desktop-nav__dropdown-menu flex-col-container gap-1em"
+                  style={{ top: `calc(${navHeight}px + 1em)` }}
+                >
+                  <li>
+                    <a href="">History</a>
+                  </li>
+                  <li>
+                    <a href="">Our Team</a>
+                  </li>
+                  <li>
+                    <a href="">Blog</a>
+                  </li>
+                </ul>
+              }
             </a>
           </li>
           <li>
@@ -123,7 +186,7 @@ const FullSizedNav = (props: FullSizedNavProps) => {
             <a href="">About</a>
           </li>
         </div>
-        <div className="flex-row-container">
+        <div className="flex-row-container gap-1em">
           <li>
             <a href="">Login</a>
           </li>

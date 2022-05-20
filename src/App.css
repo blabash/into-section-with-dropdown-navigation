@@ -44,15 +44,16 @@ a {
   font-weight: var(--medium-font-weight);
   text-decoration: none;
   color: var(--medium-gray);
-  width: max-content;
-  padding: 1em;
   border-radius: 10px;
 }
 
+.flip-down {
+  display: flex;
+  gap: 1em;
+}
+
 .flip-down::after  {
-  display: inline-block;
   content: url('./images/icon-arrow-down.svg');
-  margin-left: 1rem;
   transition: transform 350ms ease-in-out;
 }
 
@@ -72,6 +73,26 @@ a:active {
   padding: 1em 0;
   text-align: center;
   border: 1px solid var(--medium-gray);
+}
+
+.white-btn-link:hover,
+.white-btn-link:focus,
+.white-btn-link:active {
+  border: 1px solid var(--almost-black);
+}
+
+.black-btn-link {
+  padding: 1em;
+  background-color: var(--almost-black);
+  color: var(--almost-white);
+  border: 1px solid var(--almost-black);
+}
+
+.black-btn-link:hover,
+.black-btn-link:focus,
+.black-btn-link:active {
+  background-color: var(--almost-white);
+  color: var(--almost-black);
 }
 
 .mobile-nav {
@@ -156,25 +177,47 @@ a:active {
   transform: rotate(90deg) translate(-16px);
 }
 
-.white-btn-link:hover,
-.white-btn-link:focus,
-.white-btn-link:active {
-  border: 1px solid var(--almost-black);
+.desktop-nav__dropdown-menu {
+  position: absolute;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px 2px;
+  padding: 1.5em 2em;
+  background-color: white;
+  opacity: 0;
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: all 0.15s ease-out;
 }
 
-.black-btn-link {
-  background-color: var(--almost-black);
-  color: var(--almost-white);
-  border: 1px solid var(--almost-black);
+.flip-down--open.flip-down .desktop-nav__dropdown-menu {
+  opacity: 1;
+  transform: scaleY(1);
 }
 
-.black-btn-link:hover,
-.black-btn-link:focus,
-.black-btn-link:active {
-  background-color: var(--almost-white);
-  color: var(--almost-black);
+.desktop-nav__dropdown-menu a {
+  white-space: nowrap;
 }
 
+.desktop-nav__dropdown-menu__logo-link {
+  display: flex;
+  gap: 1em;
+}
+
+.desktop-nav__dropdown-menu__logo-link.todo-svg::before {
+  content: url('./images/icon-todo.svg');
+}
+
+.desktop-nav__dropdown-menu__logo-link.calendar-svg::before {
+  content: url('./images/icon-calendar.svg');
+}
+
+.desktop-nav__dropdown-menu__logo-link.reminders-svg::before {
+  content: url('./images/icon-reminders.svg');
+}
+
+.desktop-nav__dropdown-menu__logo-link.planning-svg::before {
+  content: url('./images/icon-planning.svg');
+}
 
 img[alt*="logo"] {
   width: 80px;
@@ -224,6 +267,10 @@ p {
   align-self: center;
 }
 
+.right-0 {
+  right: 0;
+}
+
 .gap-1em {
   gap: 1em;
 }
@@ -243,7 +290,6 @@ p {
 .flex-col-container {
   display: flex;
   flex-direction: column;
-  gap: 2em;
 }
 
 .flex-grow-1 {
