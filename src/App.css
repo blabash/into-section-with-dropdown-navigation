@@ -177,6 +177,13 @@ a:active {
   transform: rotate(90deg) translate(-16px);
 }
 
+.mobile-nav__dropdown-menu {
+  opacity: 0;
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: all 0.15s ease-out;
+}
+
 .desktop-nav__dropdown-menu {
   position: absolute;
   border-radius: 10px;
@@ -281,6 +288,10 @@ p {
 
 .gap-3em {
   gap: 3em;
+}
+
+.padding-left-2em {
+  padding-left: 2em;
 }
 
 .flex-row-container {

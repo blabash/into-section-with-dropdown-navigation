@@ -32,8 +32,8 @@ const MobileNav = ({
           mobileNavToggled ? " mobile-nav--open" : ""
         }`}
       >
-        <ul className="flex-col-container">
-          <li>
+        <ul className="flex-col-container gap-2em">
+          <li className="flex-col-container gap-2em">
             <a
               onClick={() => setFeaturesTabOpen((o) => !o)}
               className={`flip-down${
@@ -42,14 +42,39 @@ const MobileNav = ({
             >
               Features
             </a>
+            <ul className={"flex-col-container gap-1em padding-left-2em"}>
+              <li>
+                <a className="todo-svg">Todo List</a>
+              </li>
+              <li>
+                <a className="calendar-svg">Calendar</a>
+              </li>
+              <li>
+                <a className="reminders-svg">Reminders</a>
+              </li>
+              <li>
+                <a className="planning-svg">Planning</a>
+              </li>
+            </ul>
           </li>
-          <li>
+          <li className="flex-col-container gap-2em">
             <a
               onClick={() => setCompanyTabOpen((o) => !o)}
               className={`flip-down${companyTabOpen ? " flip-down--open" : ""}`}
             >
               Company
             </a>
+            <ul className={"flex-col-container gap-1em padding-left-2em"}>
+              <li>
+                <a>History</a>
+              </li>
+              <li>
+                <a>Our Team</a>
+              </li>
+              <li>
+                <a>Blog</a>
+              </li>
+            </ul>
           </li>
           <li>
             <a href="">Careers</a>
