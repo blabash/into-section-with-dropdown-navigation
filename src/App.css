@@ -177,11 +177,16 @@ a:active {
   transform: rotate(90deg) translate(-16px);
 }
 
-.mobile-nav__dropdown-menu {
+.mobile-nav__dropdown-menu-wrapper {
+  overflow: hidden;
+  padding-left: 2em;
   opacity: 0;
-  transform: scaleY(0);
-  transform-origin: top;
   transition: all 0.15s ease-out;
+}
+
+.flip-down--open.flip-down + .mobile-nav__dropdown-menu-wrapper {
+  padding-top: 2em;
+  opacity: 1;
 }
 
 .desktop-nav__dropdown-menu {
@@ -205,24 +210,19 @@ a:active {
   white-space: nowrap;
 }
 
-.desktop-nav__dropdown-menu__logo-link {
-  display: flex;
-  gap: 1em;
-}
-
-.desktop-nav__dropdown-menu__logo-link.todo-svg::before {
+:is(.desktop-nav__dropdown-menu__logo-link, .mobile-nav__dropdown-menu__logo-link).todo-svg::before {
   content: url('./images/icon-todo.svg');
 }
 
-.desktop-nav__dropdown-menu__logo-link.calendar-svg::before {
+:is(.desktop-nav__dropdown-menu__logo-link, .mobile-nav__dropdown-menu__logo-link).calendar-svg::before {
   content: url('./images/icon-calendar.svg');
 }
 
-.desktop-nav__dropdown-menu__logo-link.reminders-svg::before {
+:is(.desktop-nav__dropdown-menu__logo-link, .mobile-nav__dropdown-menu__logo-link).reminders-svg::before {
   content: url('./images/icon-reminders.svg');
 }
 
-.desktop-nav__dropdown-menu__logo-link.planning-svg::before {
+:is(.desktop-nav__dropdown-menu__logo-link, .mobile-nav__dropdown-menu__logo-link).planning-svg::before {
   content: url('./images/icon-planning.svg');
 }
 
@@ -294,11 +294,15 @@ p {
   padding-left: 2em;
 }
 
-.flex-row-container {
+.padding-top-2em {
+  padding-top: 2em;
+}
+
+.flex-row {
   display: flex;
 }
 
-.flex-col-container {
+.flex-col {
   display: flex;
   flex-direction: column;
 }

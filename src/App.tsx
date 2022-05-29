@@ -19,6 +19,9 @@ const MobileNav = ({
 }: MobileNavProps) => {
   const [featuresTabOpen, setFeaturesTabOpen] = useState(false);
   const [companyTabOpen, setCompanyTabOpen] = useState(false);
+  const mobileNavFeaturesDropdownRef = useRef<HTMLUListElement>(null);
+  const mobileNavCompanyDropdownRef = useRef<HTMLUListElement>(null);
+
   return (
     <>
       <div
@@ -32,8 +35,8 @@ const MobileNav = ({
           mobileNavToggled ? " mobile-nav--open" : ""
         }`}
       >
-        <ul className="flex-col-container gap-2em">
-          <li className="flex-col-container gap-2em">
+        <ul className="flex-col gap-2em">
+          <li>
             <a
               onClick={() => setFeaturesTabOpen((o) => !o)}
               className={`flip-down${
@@ -42,39 +45,77 @@ const MobileNav = ({
             >
               Features
             </a>
-            <ul className={"flex-col-container gap-1em padding-left-2em"}>
-              <li>
-                <a className="todo-svg">Todo List</a>
-              </li>
-              <li>
-                <a className="calendar-svg">Calendar</a>
-              </li>
-              <li>
-                <a className="reminders-svg">Reminders</a>
-              </li>
-              <li>
-                <a className="planning-svg">Planning</a>
-              </li>
-            </ul>
+            <div
+              className="mobile-nav__dropdown-menu-wrapper"
+              style={{
+                maxHeight: featuresTabOpen
+                  ? `${
+                      mobileNavFeaturesDropdownRef.current?.getBoundingClientRect()
+                        .height
+                    }px`
+                  : "0",
+              }}
+            >
+              <ul
+                ref={mobileNavFeaturesDropdownRef}
+                className={"mobile-nav__dropdown-menu flex-col gap-1em"}
+              >
+                <li>
+                  <a className="mobile-nav__dropdown-menu__logo-link todo-svg flex-row gap-1em">
+                    Todo List
+                  </a>
+                </li>
+                <li>
+                  <a className="mobile-nav__dropdown-menu__logo-link calendar-svg flex-row gap-1em">
+                    Calendar
+                  </a>
+                </li>
+                <li>
+                  <a className="mobile-nav__dropdown-menu__logo-link reminders-svg flex-row gap-1em">
+                    Reminders
+                  </a>
+                </li>
+                <li>
+                  <a className="mobile-nav__dropdown-menu__logo-link planning-svg flex-row gap-1em">
+                    Planning
+                  </a>
+                </li>
+              </ul>
+            </div>
           </li>
-          <li className="flex-col-container gap-2em">
+          <li>
             <a
               onClick={() => setCompanyTabOpen((o) => !o)}
               className={`flip-down${companyTabOpen ? " flip-down--open" : ""}`}
             >
               Company
             </a>
-            <ul className={"flex-col-container gap-1em padding-left-2em"}>
-              <li>
-                <a>History</a>
-              </li>
-              <li>
-                <a>Our Team</a>
-              </li>
-              <li>
-                <a>Blog</a>
-              </li>
-            </ul>
+            <div
+              className="mobile-nav__dropdown-menu-wrapper"
+              style={{
+                maxHeight: companyTabOpen
+                  ? `${
+                      mobileNavCompanyDropdownRef.current?.getBoundingClientRect()
+                        .height
+                    }px`
+                  : "0",
+              }}
+            >
+              <ul
+                ref={mobileNavCompanyDropdownRef}
+                className={"mobile-nav__dropdown-menu flex-col gap-1em"}
+              >
+                <li>
+                  <a>History</a>
+                </li>
+                <li>
+                  <a>Our Team</a>
+                </li>
+                <li>
+                  <a>Blog</a>
+                </li>
+              </ul>
+            </div>
           </li>
           <li>
             <a href="">Careers</a>
@@ -119,16 +160,12 @@ type FullSizedNavProps = {};
 const FullSizedNav = (props: FullSizedNavProps) => {
   const [featuresTabOpen, setFeaturesTabOpen] = useState(false);
   const [companyTabOpen, setCompanyTabOpen] = useState(false);
-  const [navHeight, setNavHeight] = useState(0);
   const navItemRef = useRef<HTMLLIElement>(null);
-  useEffect(() => {
-    setNavHeight(navItemRef.current?.getBoundingClientRect().height || 0);
-  }, [navItemRef.current]);
 
   return (
     <nav className="flex-grow-1 mobile-hidden">
-      <ul className="flex-row-container justify-space-between">
-        <div className="flex-row-container gap-1em">
+      <ul className="flex-row justify-space-between">
+        <div className="flex-row gap-1em">
           <li ref={navItemRef} style={{ position: "relative" }}>
             <a
               onClick={() => setFeaturesTabOpen((o) => !o)}
@@ -140,13 +177,17 @@ const FullSizedNav = (props: FullSizedNavProps) => {
               {
                 <ul
                   className={
-                    "desktop-nav__dropdown-menu flex-col-container gap-1em right-0"
+                    "desktop-nav__dropdown-menu flex-col gap-1em right-0"
                   }
-                  style={{ top: `calc(${navHeight}px + 1em)` }}
+                  style={{
+                    top: `calc(${
+                      navItemRef.current?.getBoundingClientRect().height ?? 0
+                    }px + 1em)`,
+                  }}
                 >
                   <li>
                     <a
-                      className="desktop-nav__dropdown-menu__logo-link todo-svg"
+                      className="desktop-nav__dropdown-menu__logo-link todo-svg flex-row gap-1em"
                       href=""
                     >
                       Todo List
@@ -154,7 +195,7 @@ const FullSizedNav = (props: FullSizedNavProps) => {
                   </li>
                   <li>
                     <a
-                      className="desktop-nav__dropdown-menu__logo-link calendar-svg"
+                      className="desktop-nav__dropdown-menu__logo-link calendar-svg flex-row gap-1em"
                       href=""
                     >
                       Calendar
@@ -162,7 +203,7 @@ const FullSizedNav = (props: FullSizedNavProps) => {
                   </li>
                   <li>
                     <a
-                      className="desktop-nav__dropdown-menu__logo-link reminders-svg"
+                      className="desktop-nav__dropdown-menu__logo-link reminders-svg flex-row gap-1em"
                       href=""
                     >
                       Reminders
@@ -170,7 +211,7 @@ const FullSizedNav = (props: FullSizedNavProps) => {
                   </li>
                   <li>
                     <a
-                      className="desktop-nav__dropdown-menu__logo-link planning-svg"
+                      className="desktop-nav__dropdown-menu__logo-link planning-svg flex-row gap-1em"
                       href=""
                     >
                       Planning
@@ -188,8 +229,12 @@ const FullSizedNav = (props: FullSizedNavProps) => {
               Company
               {
                 <ul
-                  className="desktop-nav__dropdown-menu flex-col-container gap-1em"
-                  style={{ top: `calc(${navHeight}px + 1em)` }}
+                  className="desktop-nav__dropdown-menu flex-col gap-1em"
+                  style={{
+                    top: `calc(${
+                      navItemRef.current?.getBoundingClientRect().height ?? 0
+                    }px + 1em)`,
+                  }}
                 >
                   <li>
                     <a href="">History</a>
@@ -211,7 +256,7 @@ const FullSizedNav = (props: FullSizedNavProps) => {
             <a href="">About</a>
           </li>
         </div>
-        <div className="flex-row-container gap-1em">
+        <div className="flex-row gap-1em">
           <li>
             <a href="">Login</a>
           </li>
@@ -232,7 +277,7 @@ function App() {
   return (
     <div className="page-grid-container">
       <header>
-        <div className="flex-row-container justify-space-between align-items-center">
+        <div className="flex-row justify-space-between align-items-center">
           <img src={snapLogo} className="snap-logo" alt="snap logo" />
           <MobileNavToggle
             mobileNavToggled={mobileNavToggled}
@@ -267,7 +312,7 @@ function App() {
           Learn more
         </a>
         <footer className="align-self-end">
-          <ul className="flex-row-container gap-2em">
+          <ul className="flex-row gap-2em">
             <li>
               <img src={dataBizLogo} alt="databiz logo" />
             </li>
