@@ -118,18 +118,16 @@ const MobileNav = ({
             </div>
           </li>
           <li>
-            <a href="">Careers</a>
+            <a>Careers</a>
           </li>
           <li>
-            <a href="">About</a>
+            <a>About</a>
           </li>
           <li className="text-align-center">
-            <a href="">Login</a>
+            <a>Login</a>
           </li>
           <li>
-            <a className="white-btn-link" href="">
-              Register
-            </a>
+            <a className="white-btn-link">Register</a>
           </li>
         </ul>
       </nav>
@@ -186,34 +184,22 @@ const FullSizedNav = (props: FullSizedNavProps) => {
                   }}
                 >
                   <li>
-                    <a
-                      className="desktop-nav__dropdown-menu__logo-link todo-svg flex-row gap-1em"
-                      href=""
-                    >
+                    <a className="desktop-nav__dropdown-menu__logo-link todo-svg flex-row gap-1em">
                       Todo List
                     </a>
                   </li>
                   <li>
-                    <a
-                      className="desktop-nav__dropdown-menu__logo-link calendar-svg flex-row gap-1em"
-                      href=""
-                    >
+                    <a className="desktop-nav__dropdown-menu__logo-link calendar-svg flex-row gap-1em">
                       Calendar
                     </a>
                   </li>
                   <li>
-                    <a
-                      className="desktop-nav__dropdown-menu__logo-link reminders-svg flex-row gap-1em"
-                      href=""
-                    >
+                    <a className="desktop-nav__dropdown-menu__logo-link reminders-svg flex-row gap-1em">
                       Reminders
                     </a>
                   </li>
                   <li>
-                    <a
-                      className="desktop-nav__dropdown-menu__logo-link planning-svg flex-row gap-1em"
-                      href=""
-                    >
+                    <a className="desktop-nav__dropdown-menu__logo-link planning-svg flex-row gap-1em">
                       Planning
                     </a>
                   </li>
@@ -237,33 +223,31 @@ const FullSizedNav = (props: FullSizedNavProps) => {
                   }}
                 >
                   <li>
-                    <a href="">History</a>
+                    <a>History</a>
                   </li>
                   <li>
-                    <a href="">Our Team</a>
+                    <a>Our Team</a>
                   </li>
                   <li>
-                    <a href="">Blog</a>
+                    <a>Blog</a>
                   </li>
                 </ul>
               }
             </a>
           </li>
           <li>
-            <a href="">Careers</a>
+            <a>Careers</a>
           </li>
           <li>
-            <a href="">About</a>
+            <a>About</a>
           </li>
         </div>
         <div className="flex-row gap-1em">
           <li>
-            <a href="">Login</a>
+            <a>Login</a>
           </li>
           <li>
-            <a className="white-btn-link" href="">
-              Register
-            </a>
+            <a className="white-btn-link">Register</a>
           </li>
         </div>
       </ul>
@@ -308,9 +292,7 @@ function App() {
           Get your team in sync, no matter your location. Streamline processes,
           create team rituals, and watch productivity soar.
         </p>
-        <a className="black-btn-link" href="">
-          Learn more
-        </a>
+        <a className="black-btn-link">Learn more</a>
         <footer className="align-self-end">
           <ul className="flex-row gap-2em">
             <li>

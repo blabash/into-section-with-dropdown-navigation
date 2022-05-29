@@ -45,6 +45,7 @@ a {
   text-decoration: none;
   color: var(--medium-gray);
   border-radius: 10px;
+  cursor: pointer;
 }
 
 .flip-down {
