@@ -362,7 +362,6 @@ header {
     gap: 0;
     text-align: left;
     grid-template-columns: 1fr 40%;
-    grid-auto-rows: auto;
     grid-template-areas:
       "header hero"
       "description hero"
