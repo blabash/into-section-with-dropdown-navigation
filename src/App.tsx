@@ -18,7 +18,7 @@ function App() {
           <img src={snapLogo} className="snap-logo" alt="snap logo" />
           <MobileNav>
             <MobileNav.MobileNavToggle />
-            <MobileNav.MobileNavLinks />
+            <MobileNav.MobileNavSlideOut />
           </MobileNav>
           <FullSizedNav />
         </div>

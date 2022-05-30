@@ -7,9 +7,15 @@ import React, {
   useState,
 } from "react";
 
-type MobileNavLinkProps = {};
+type MobileNavSlideOutProps = {
+  className?: string;
+  style?: React.CSSProperties;
+};
 
-const MobileNavLinks = (props: MobileNavLinkProps) => {
+const MobileNavSlideOut = ({
+  className = "",
+  ...style
+}: MobileNavSlideOutProps) => {
   const [featuresTabOpen, setFeaturesTabOpen] = useState(false);
   const [companyTabOpen, setCompanyTabOpen] = useState(false);
   const mobileNavFeaturesDropdownRef = useRef<HTMLUListElement>(null);
@@ -27,7 +33,8 @@ const MobileNavLinks = (props: MobileNavLinkProps) => {
       <nav
         className={`mobile-nav desktop-hidden${
           mobileNavToggled ? " mobile-nav--open" : ""
-        }`}
+        } ${className}`}
+        {...style}
       >
         <ul className="flex-col gap-2em">
           <li>
@@ -129,16 +136,24 @@ const MobileNavLinks = (props: MobileNavLinkProps) => {
   );
 };
 
-type MobileNavToggleProps = {};
+type MobileNavToggleProps = {
+  className?: string;
+  style?: React.CSSProperties;
+};
 
-const MobileNavToggle = (props: MobileNavToggleProps) => {
+const MobileNavToggle = ({
+  className = "",
+  ...style
+}: MobileNavToggleProps) => {
   const { mobileNavToggled, toggle } = useContext(MobileNavContext);
+
   return (
     <button
       className={`mobile-nav__toggle desktop-hidden${
         mobileNavToggled ? " mobile-nav--open" : ""
-      }`}
+      } ${className}`}
       onClick={toggle}
+      {...style}
     >
       <span id="hamburger"></span>
     </button>
@@ -176,5 +191,5 @@ export const MobileNav = ({ children }: MobileNavProps) => {
   );
 };
 
-MobileNav.MobileNavLinks = MobileNavLinks;
+MobileNav.MobileNavSlideOut = MobileNavSlideOut;
 MobileNav.MobileNavToggle = MobileNavToggle;
