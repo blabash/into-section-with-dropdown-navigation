@@ -29,7 +29,7 @@ p {
   color: var(--medium-gray);
 }
 
-/* =========Components======== */
+/* =========Elements======== */
 header {
   padding: 1em 2em;
 }
@@ -48,6 +48,21 @@ a {
   cursor: pointer;
 }
 
+a:hover,
+a:focus,
+a:active {
+  color: var(--almost-black);
+}
+
+img {
+  max-width: 100%;
+}
+
+p {
+  max-width: 45ch;
+}
+
+/* =========Components======== */
 .flip-down {
   display: flex;
   gap: 1em;
@@ -60,12 +75,6 @@ a {
 
 .flip-down--open.flip-down::after  {
   transform: rotateZ(180deg);
-}
-
-a:hover,
-a:focus,
-a:active {
-  color: var(--almost-black);
 }
 
 .white-btn-link {
@@ -236,10 +245,6 @@ img[alt*="logo"] {
   margin-right: 3em;
 }
 
-img {
-  max-width: 100%;
-}
-
 /* =========Layout======== */
 .page-grid-container {
   display: grid;
@@ -252,10 +257,6 @@ img {
   grid-auto-rows: auto;
   gap: 2rem;
   text-align: center;
-}
-
-p {
-  max-width: 45ch;
 }
 
 /* =========Utility======== */
@@ -330,27 +331,21 @@ p {
 }
 
 @media (min-width: 561px) {
-/* =========Components======== */
-header {
-  padding: 2em 3em;
-}
-
-.white-btn-link {
-  display: inline;
-  padding: 1em;
-}
-
   /* =========Typography======== */
   body {
     font-size: clamp(10px, 1.5vw, 1rem);
   }
 
-  /* =========Utility======== */
-  .desktop-hidden {
-    display: none;
+  /* =========Elements======== */
+  header {
+    padding: 2em 3em;
   }
-  .mobile-hidden {
-    display: block;
+
+  /* =========Components======== */
+
+  .white-btn-link {
+    display: inline;
+    padding: 1em;
   }
 
   /* =========Layout======== */
@@ -389,9 +384,17 @@ header {
     grid-area: footer;
     padding-right: 2em;
   }
+
+  /* =========Utility======== */
+  .desktop-hidden {
+    display: none;
+  }
+  .mobile-hidden {
+    display: block;
+  }
 }
 
-@media (prefers-reduced-motion: no-preference) {
+/* @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
   }
@@ -419,4 +422,4 @@ header {
   to {
     transform: rotate(360deg);
   }
-}
+} */
