@@ -27,12 +27,12 @@ function App() {
         <img
           className="desktop-hidden"
           src={imageHeroMobile}
-          alt="image hero mobile"
+          alt="hero mobile"
         />
         <img
           className="mobile-hidden"
           src={imageHeroDesktop}
-          alt="image hero desktop"
+          alt="hero desktop"
         />
         <h1>
           Make <br className="mobile-hidden"></br> remote work
