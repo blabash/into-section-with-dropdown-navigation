@@ -2,7 +2,7 @@
   "name": "into-section-with-dropdown-navigation",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://blabash.github.io",
+  "homepage": "https://blabash.github.io/intro-section-with-dropdown-navigation",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.2.0",
