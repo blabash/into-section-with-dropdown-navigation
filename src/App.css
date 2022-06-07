@@ -63,11 +63,6 @@ p {
 }
 
 /* =========Components======== */
-.flip-down {
-  display: flex;
-  gap: 1em;
-}
-
 .flip-down::after  {
   content: url('./images/icon-arrow-down.svg');
   transition: transform 350ms ease-in-out;

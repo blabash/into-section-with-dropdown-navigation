@@ -40,7 +40,7 @@ const MobileNavSlideOut = ({
           <li>
             <a
               onClick={() => setFeaturesTabOpen((o) => !o)}
-              className={`flip-down${
+              className={`flip-down flex-row gap-1em${
                 featuresTabOpen ? " flip-down--open" : ""
               }`}
             >
@@ -87,7 +87,9 @@ const MobileNavSlideOut = ({
           <li>
             <a
               onClick={() => setCompanyTabOpen((o) => !o)}
-              className={`flip-down${companyTabOpen ? " flip-down--open" : ""}`}
+              className={`flip-down flex-row gap-1em${
+                companyTabOpen ? " flip-down--open" : ""
+              }`}
             >
               Company
             </a>

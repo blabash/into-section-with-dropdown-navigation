@@ -14,7 +14,7 @@ export const FullSizedNav = (props: FullSizedNavProps) => {
           <li ref={navItemRef} style={{ position: "relative" }}>
             <a
               onClick={() => setFeaturesTabOpen((o) => !o)}
-              className={`flip-down${
+              className={`flip-down flex-row gap-1em${
                 featuresTabOpen ? " flip-down--open" : ""
               }`}
             >
@@ -57,7 +57,9 @@ export const FullSizedNav = (props: FullSizedNavProps) => {
           <li style={{ position: "relative" }}>
             <a
               onClick={() => setCompanyTabOpen((o) => !o)}
-              className={`flip-down${companyTabOpen ? " flip-down--open" : ""}`}
+              className={`flip-down flex-row gap-1em${
+                companyTabOpen ? " flip-down--open" : ""
+              }`}
             >
               Company
               {
